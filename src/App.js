@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import pricingData from './data/pricingData.json';
 
-function App() {
+class App extends React.Component {
+  state = {}
+  
+  render(){
+
+    const items = pricingData.item;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    // <div className="App">
+      <header>
+        <h1> CDL Checkout App</h1>
+        {console.log(items)}
       </header>
-    </div>
+    // </div>
   );
+  }
 }
 
 export default App;
