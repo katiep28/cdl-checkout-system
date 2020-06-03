@@ -1,0 +1,26 @@
+{
+    "item": [
+        {"name":"A",
+         "price":0.5,
+         "offer":{
+            "type":"multibuy",
+            "qualqty":3,
+            "discount":0.2
+        }},
+        {"name":"B",
+            "price":0.3,
+            "offer":{
+               "type":"multibuy",
+               "qualqty":2,
+               "discount":0.15
+           }},   
+           {"name":"C",
+            "price":0.2,
+            "offer":{
+           }},  
+           {"name":"D",
+            "price":0.15,
+            "offer":{
+           }}  
+    ]
+}

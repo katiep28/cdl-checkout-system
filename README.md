@@ -1,3 +1,23 @@
+Design
+
+To be able to change the prcicing data regularly a JSON file will be passed in containing the pricing information. This will look something like this :
+{
+    item:"apple",
+    price:0.15,
+    offer{type:"multibuy",
+          qty:3
+          discount:0.2}
+}
+
+There could be different types of offer in the future eg Buy one get one free or just 20% discount. This format will be able to handle those. The code would check the type and then apply a rule.
+
+The screen layout will have 2 areas:
+      A header area with a dropdown list showing the items available to buy a quantity field for how many of this item they want and an ADD button to add the item to the basket.
+
+      The lower part of the screen will have a list of the items added to the basket with a running total at the bottom.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -43,26 +63,3 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
