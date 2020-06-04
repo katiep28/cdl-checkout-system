@@ -27,7 +27,8 @@ class Dropdown extends React.Component {
 
         this.setState({ selectedItem: e.target.value });
         // What are we going to do here?????
-        this.props.saveItemFunc(e.target.value, "?");
+    
+        this.props.saveItemFunc(e.target.value);
     }
 
     hideDropdownMenu() {
@@ -47,7 +48,7 @@ class Dropdown extends React.Component {
                 <select name="Item" id="dropdown" onChange={this.handleDropdownChange}>
                     <option>CHOOSE</option>
                  {this.props.itemArray.map(item => {
-                        return <option key={item.id} value={item.name}> {item.name}{"   "+"£"+(item.price)}
+                        return <option key={item.name} value={item.name}> {item.name}{"   "+"£"+(item.price)}
                         </option>
                     })} 
                 </select>

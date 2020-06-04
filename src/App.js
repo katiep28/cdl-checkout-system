@@ -7,10 +7,11 @@ import pricingData from './data/pricingData.json';
 class App extends React.Component {
   state = {}
 
-  addToBasket = (newItem, itemQty) => {
-
+  addToBasket = (name, price, qty, offer) => {
+   
     //Create a new task wtih default status
-    let shoppingBasket = [];
+   let shoppingBasket = [];
+   console.log("IN shopping basket" + name + " " + price + " " + qty + " " + offer)
 
 
     this.setState({

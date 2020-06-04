@@ -4,11 +4,13 @@ import DropDown from './DropDown';
 class AddItem extends React.Component {
   state = {
     itemQty: 1,
-    newItem: ""
+    name: "",
+    price: 0,
+    offer: {}
   }
   updateItem = (event) => {
     this.setState({
-      newItem: event.target.value
+      name: event.target.value
     })
   }
   updateItemQty = (event) => {
@@ -22,13 +24,27 @@ class AddItem extends React.Component {
     if (this.state.Itemqty === "") {
       alert("ERROR: You must enter a quantity greater than 0 before pressing the ADD button");
     }
-    this.props.addToBasketFunc(this.state.newItem, this.state.itemQty);
+    this.props.addToBasketFunc(this.state.name, this.state.price, this.state.itemQty, this.state.offer);
     this.setState({
       itemQty: 1,
     });
   }
-  saveItem = (item, price) => {
-     console.log(item + " " + price);
+  saveItem = (name) => {
+    let price = 0;
+    let offer = {};
+    this.props.itemArray.forEach(item => {
+      if (item.name === name){
+        price = item.price;
+        offer = item.offer;
+        return ;
+      }} 
+     );
+
+     this.setState({
+      name: name,
+      price: price,
+      offer: offer
+    });
   };
   render() {
     return (
