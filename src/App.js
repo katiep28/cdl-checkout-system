@@ -5,14 +5,31 @@ import './App.css';
 import pricingData from './data/pricingData.json';
 
 class App extends React.Component {
-  state = {}
+  state = {
+    shoppingBasket: []
+  }
 
   addToBasket = (name, price, qty, offer) => {
-   
+   let tempItemObj = {name: name,
+                      qty: qty,
+                      price: price,
+                      itemTotal: qty*price
+   }
     //Create a new task wtih default status
-   let shoppingBasket = [];
-   console.log("IN shopping basket" + name + " " + price + " " + qty + " " + offer)
+  //  console.log("IN shopping basket" + name + " " + price + " " + qty + " " + offer);
+   
+   
+   //Make a copy of the tasks array
+   //never do this.stat.tasks.push item and access it direactly as this causese
+   //a problem
+   const shoppingBasketCopy = this.state.shoppingBasket.slice();
 
+   console.log("temp Object" + " " + tempItemObj.name);
+   shoppingBasketCopy.push(tempItemObj);
+   console.log("shopping basket size" + " " + shoppingBasketCopy.length);
+   this.setState({
+     shoppingBasket: shoppingBasketCopy
+   });
 
     this.setState({
 
