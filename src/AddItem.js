@@ -1,4 +1,5 @@
 import React from "react";
+import DropDown from './DropDown';
 
 class AddItem extends React.Component {
   state = {
@@ -34,13 +35,11 @@ class AddItem extends React.Component {
           <h3>Item</h3>
         </div>
         <div className="col-12 col-lg-3">
-          <input
-            id="dropdown"
-            type="text"
-            className="text"
-            placeholder="This is a drop down"
-            value={this.state.newItem}
-            onChange={this.updateNewItem} />
+        <DropDown
+                  itemArray={this.props.itemArray}
+                  label="AlcoholicItems" style={{ width: "160px" }}
+                  key="1"
+                />
         </div>
 
         <div className="col-12 col-lg-3">

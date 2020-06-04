@@ -27,13 +27,14 @@ class App extends React.Component {
           <div className="row">
             <div className="col-12 col-lg-12">
              <h1> CDL Checkout App</h1>
-            {console.log(items[1].offer)}
+            {console.log(items)}
             </div>
         </div>
         </div>
         <div className="row">
           <div className="col-12 col-lg-12 border border-secondary border-thick">
-            <AddItem addTaskFunc={this.addItem} />
+            <AddItem addTaskFunc={this.addItem}
+                     itemArray={items} />
           </div>
         </div>
       </div>
