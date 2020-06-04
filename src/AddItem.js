@@ -28,39 +28,40 @@ class AddItem extends React.Component {
   };
   render() {
     return (
-      <section className= "add">
-      <div className="row paddingabove paddingleftright">
-        <div className="col-12 col-lg-6">
-          <label align="left">Item</label>
-        {/* </div>
-        <div className="col-12 col-lg-3"> */}
+      // <section className= "add">
+      <div className="row paddingabove">
+        <div className="col-12 col-lg-1">
+          <h3>Item</h3>
+        </div>
+        <div className="col-12 col-lg-3">
           <input
             id="dropdown"
             type="text"
-            // className="form-control"
+            className="text"
             placeholder="This is a drop down"
             value={this.state.newItem}
             onChange={this.updateNewItem} />
         </div>
 
-        <div className="col-12 col-lg-4">
-          <label align="left"> How many?</label>
-        {/* </div>
-        <div className="col-12 col-lg-2"> */}
+        <div className="col-12 col-lg-3">
+          <h3 align="right"> How many?</h3>
+        </div>
+        <div className="col-12 col-lg-2">
           <input
             id="addItemQty"
-            type="text"
-            className="itemqty"
+            type="number"
+            className="form-control"
             value={this.state.itemQty}
             onChange={this.updateItemQty} />
         </div>
-        <div className="col-12 col-lg-2">
-        <button className="btn btn-warning"
+
+        <div className="col-12 col-lg-3">
+           <button type="button" className="btn btn-success btn-lg"
           onClick={this.handleClick}>Add
-              </button>
-      </div>
-        </div >
-      </section >
+           </button>
+        </div>
+       </div >
+      // {/* </section > */}
     );
   }
 }

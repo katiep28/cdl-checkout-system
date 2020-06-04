@@ -21,8 +21,8 @@ class App extends React.Component {
 
     const items = pricingData.item;
     return (
-      <body>
-        <div className="container">
+  
+      <div className="container">
         <div className="header">
           <div className="row">
             <div className="col-12 col-lg-12">
@@ -36,8 +36,7 @@ class App extends React.Component {
             <AddItem addTaskFunc={this.addItem} />
           </div>
         </div>
-</div>
-      </body>
+      </div>
     );
   }
 }
