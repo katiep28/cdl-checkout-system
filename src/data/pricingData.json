@@ -1,25 +1,25 @@
 {
     "item": [
         {"name":"A",
-         "price":0.5,
+         "price":"0.50",
          "offer":{
             "type":"multibuy",
             "qualqty":3,
-            "discount":0.2
+            "discount":"0.20"
         }},
         {"name":"B",
-         "price":0.3,
+         "price":"0.30",
          "offer":{
             "type":"multibuy",
             "qualqty":2,
-            "discount":0.15
+            "discount":"0.15"
            }},   
         {"name":"C",
-         "price":0.2,
+         "price":"0.20",
          "offer":{
            }},  
         {"name":"D",
-         "price":0.15,
+         "price":"0.15",
          "offer":{
            }}  
     ]

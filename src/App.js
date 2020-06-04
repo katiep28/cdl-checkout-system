@@ -7,7 +7,7 @@ import pricingData from './data/pricingData.json';
 class App extends React.Component {
   state = {}
 
-  addItem = (newItem, itemQty) => {
+  addToBasket = (newItem, itemQty) => {
 
     //Create a new task wtih default status
     let shoppingBasket = [];
@@ -33,7 +33,7 @@ class App extends React.Component {
         </div>
         <div className="row">
           <div className="col-12 col-lg-12 border border-secondary border-thick">
-            <AddItem addTaskFunc={this.addItem}
+            <AddItem addToBasketFunc={this.addToBasket}
                      itemArray={items} />
           </div>
         </div>

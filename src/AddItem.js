@@ -22,10 +22,13 @@ class AddItem extends React.Component {
     if (this.state.Itemqty === "") {
       alert("ERROR: You must enter a quantity greater than 0 before pressing the ADD button");
     }
-    this.props.addTaskFunc(this.state.newItem, this.state.itemQty);
+    this.props.addToBasketFunc(this.state.newItem, this.state.itemQty);
     this.setState({
       itemQty: 1,
     });
+  }
+  saveItem = (item, price) => {
+     console.log(item + " " + price);
   };
   render() {
     return (
@@ -37,6 +40,7 @@ class AddItem extends React.Component {
         <div className="col-12 col-lg-3">
         <DropDown
                   itemArray={this.props.itemArray}
+                  saveItemFunc={this.saveItem}
                   label="AlcoholicItems" style={{ width: "160px" }}
                   key="1"
                 />
