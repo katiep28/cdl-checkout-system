@@ -9,12 +9,14 @@ class App extends React.Component {
     shoppingBasket: []
   }
 
-  addToBasket = (name, price, qty, offer) => {
-   let tempItemObj = {name: name,
-                      qty: qty,
-                      price: price,
-                      itemTotal: qty*price
-   }
+  // addToBasket = (name, price, qty, offer) => {
+    addToBasket = (itemToAddObj) => {
+  
+  //   let tempItemObj = {name: item,
+  //                     qty: qty,
+  //                     price: price,
+  //                     itemTotal: qty*price
+  //  }
     //Create a new task wtih default status
   //  console.log("IN shopping basket" + name + " " + price + " " + qty + " " + offer);
    
@@ -24,8 +26,8 @@ class App extends React.Component {
    //a problem
    const shoppingBasketCopy = this.state.shoppingBasket.slice();
 
-   console.log("temp Object" + " " + tempItemObj.name);
-   shoppingBasketCopy.push(tempItemObj);
+   console.log("temp Object" + " " + itemToAddObj.name);
+   shoppingBasketCopy.push(itemToAddObj);
    console.log("shopping basket size" + " " + shoppingBasketCopy.length);
    this.setState({
      shoppingBasket: shoppingBasketCopy

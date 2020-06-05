@@ -4,9 +4,10 @@ import DropDown from './DropDown';
 class AddItem extends React.Component {
   state = {
     itemQty: 1,
-    name: "",
-    price: 0,
-    offer: {}
+    itemToAddObj: {}
+    // name: "",
+    // price: 0,
+    // offer: {}
   }
   updateItem = (event) => {
     this.setState({
@@ -21,10 +22,12 @@ class AddItem extends React.Component {
 
   handleClick = () => {
 
-    if (this.state.Itemqty === "") {
+    if (this.state.itemQty === "") {
       alert("ERROR: You must enter a quantity greater than 0 before pressing the ADD button");
     }
-    this.props.addToBasketFunc(this.state.name, this.state.price, this.state.itemQty, this.state.offer);
+    
+    // this.props.addToBasketFunc(this.state.name, this.state.price, this.state.itemQty, this.state.offer);
+    this.props.addToBasketFunc(this.state.itemToAddObj);
     this.setState({
       itemQty: 1,
     });
@@ -40,9 +43,11 @@ class AddItem extends React.Component {
      const selectedItem = this.props.itemArray.filter(item => item.name === name);
 
      this.setState({
+       itemToAddObj: {
       name: name,
       price: selectedItem[0].price,
       offer: selectedItem[0].offer
+       }
     });
   };
   render() {
@@ -74,8 +79,9 @@ class AddItem extends React.Component {
         </div>
 
         <div className="col-12 col-lg-3">
-           <button type="button" className="btn btn-success btn-lg"
-          onClick={this.handleClick}>Add
+           <button type="button" 
+                   className="btn btn-success btn-lg"
+                   onClick={this.handleClick}>Add
            </button>
         </div>
        </div >
