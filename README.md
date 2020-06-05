@@ -16,6 +16,10 @@ The screen layout will have 2 areas:
 
       The lower part of the screen will have a list of the items added to the basket with a running total at the bottom.
 
+Each time an item is selected it will be added to an array. The code will check if the item already exists and if so just update the quantity.
+
+Each time a new item is added to the shopping basket the code will check if there is an offer to apply and a running total will be maintained.
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
