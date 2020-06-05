@@ -30,20 +30,19 @@ class AddItem extends React.Component {
     });
   }
   saveItem = (name) => {
-    let price = 0;
-    let offer = {};
-    this.props.itemArray.forEach(item => {
-      if (item.name === name){
-        price = item.price;
-        offer = item.offer;
-        return ;
-      }} 
-     );
+    // this.props.itemArray.forEach(item => {
+    //   if (item.name === name){
+    //     price = item.price;
+    //     offer = item.offer;
+    //     return ;
+    //   }} 
+    //  );
+     const selectedItem = this.props.itemArray.filter(item => item.name === name);
 
      this.setState({
       name: name,
-      price: price,
-      offer: offer
+      price: selectedItem[0].price,
+      offer: selectedItem[0].offer
     });
   };
   render() {
