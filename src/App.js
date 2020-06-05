@@ -1,6 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import AddItem from './AddItem';
+import ListItem from './ListItem';
 import './App.css';
 import pricingData from './data/pricingData.json';
 
@@ -57,6 +58,46 @@ class App extends React.Component {
                      itemArray={items} />
           </div>
         </div>
+
+
+        <div className="row paddingabove ">
+          <div className="col-1 col-lg-4">
+            <p align="left">
+              Item
+            </p>
+          </div>
+          <div className="col-10 col-lg-4">
+            <h4 align="center">
+              Quantity
+            </h4>
+          </div>
+          <div className="col-1 col-lg-4">
+            <p align="center">
+              Item Price
+            </p>
+          </div>
+        </div>
+        <div className="row paddingbelow ">
+          <div className="col-12 col-lg-12 border border-secondary border-thick" >
+            <br/>
+            <ol className="list-group">
+              {this.state.shoppingBasket.map(item => {
+                return <ListItem
+                  name={item.name}
+                  qty={item.qty}
+                  itemTotal={item.price * item.qty}
+                  id={item.name}
+                  key={item.name}
+                />
+              })}
+            </ol>
+          </div>
+        </div>
+
+
+
+
+
       </div>
     );
   }
