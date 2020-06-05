@@ -8,6 +8,7 @@ class AddItem extends React.Component {
       name:"",
       price: 0,
       qty: 0,
+      itemTotal:0,
       offer: {}
     }
   }
@@ -28,14 +29,16 @@ class AddItem extends React.Component {
       alert("ERROR: You must enter a quantity greater than 0 before pressing the ADD button");
     }
     // Need to update the quantity value in the object
-    const tempQty = {qty: this.state.itemQty};
+    const tempQty = {qty: this.state.itemQty,
+                     itemTotal: this.state.itemQty * this.state.itemToAddObj.price};
     const tempObj = this.state.itemToAddObj;
 
     Object.assign(tempObj, tempQty);
 
     this.setState({
       itemToAddObj:{
-        qty: tempObj.qty
+        qty: tempObj.qty,
+        itemTotal: tempObj.itemTotal
       }
     });
       
@@ -54,6 +57,7 @@ class AddItem extends React.Component {
       name: name,
       price: selectedItem[0].price,
       qty: 0,
+      itemTotal: 0,
       offer: selectedItem[0].offer
        }
     });

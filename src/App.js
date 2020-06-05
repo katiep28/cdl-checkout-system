@@ -47,20 +47,27 @@ class App extends React.Component {
       shoppingBasketCopy.push(itemToAddObj);
     }
 
-    //Loop through Apply any offers or discounts
+    //Loop through shopping basket to apply any offers or discounts
    
     shoppingBasketCopy.forEach(item => {
+      //Check the type of offer
+      if (item.offer.type === "multibuy"){
+        //Check if the item qualifies for the offer
+        if (item.qty >= item.offer.qualqty){
 
-      if (item.offer !== {}){
-        console.log("APPLY DISCOUNT");
-        savingsTotal = savingsTotal + 100
+          savingsTotal = savingsTotal + item.offer.discount;
+        }
+      }
+      if (item.offer.type === "discount"){
+        //apply proccessing
       }
     });
-
+ 
+    // If an offer has been applied then add it to the end of the array
     if (savingsTotal > 0){
-      shoppingBasketCopy.push({name:"Savings",qty: null,itemTotal: savingsTotal});
+      shoppingBasketCopy.push({name:"Savings",qty: null,itemTotal: (savingsTotal*-1)});
     }
-    
+
    this.setState({
      shoppingBasket: shoppingBasketCopy
    });
@@ -114,7 +121,7 @@ class App extends React.Component {
                 return <ListItem
                   name={item.name}
                   qty={item.qty}
-                  itemTotal={item.price * item.qty}
+                  itemTotal={item.itemTotal}
                   id={item.name}
                   key={item.name}
                 />

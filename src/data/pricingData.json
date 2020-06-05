@@ -5,14 +5,14 @@
          "offer":{
             "type":"multibuy",
             "qualqty":3,
-            "discount":"0.20"
+            "discount":0.20
         }},
         {"name":"B",
          "price":"0.30",
          "offer":{
             "type":"multibuy",
             "qualqty":2,
-            "discount":"0.15"
+            "discount":0.15
            }},   
         {"name":"C",
          "price":"0.20",
