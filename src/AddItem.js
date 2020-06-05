@@ -10,9 +10,6 @@ class AddItem extends React.Component {
       qty: 0,
       offer: {}
     }
-    // name: "",
-    // price: 0,
-    // offer: {}
   }
   updateItem = (event) => {
     this.setState({
@@ -47,15 +44,9 @@ class AddItem extends React.Component {
       itemQty: 1,
     });
   }
-  
+
   saveItem = (name) => {
-    // this.props.itemArray.forEach(item => {
-    //   if (item.name === name){
-    //     price = item.price;
-    //     offer = item.offer;
-    //     return ;
-    //   }} 
-    //  );
+
      const selectedItem = this.props.itemArray.filter(item => item.name === name);
 
      this.setState({

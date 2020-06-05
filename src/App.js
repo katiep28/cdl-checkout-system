@@ -10,34 +10,35 @@ class App extends React.Component {
     shoppingBasket: []
   }
 
-  // addToBasket = (name, price, qty, offer) => {
-    addToBasket = (itemToAddObj) => {
   
-  //   let tempItemObj = {name: item,
-  //                     qty: qty,
-  //                     price: price,
-  //                     itemTotal: qty*price
-  //  }
-    //Create a new task wtih default status
-  //  console.log("IN shopping basket" + name + " " + price + " " + qty + " " + offer);
-   
+  addToBasket = (itemToAddObj) => {
    
    //Make a copy of the tasks array
-   //never do this.stat.tasks.push item and access it direactly as this causese
+   //never do this.state.tasks.push item and access it direactly as this causese
    //a problem
    const shoppingBasketCopy = this.state.shoppingBasket.slice();
 
-   console.log("temp Object" + " " + itemToAddObj.name);
-   shoppingBasketCopy.push(itemToAddObj);
-   console.log("shopping basket size" + " " + shoppingBasketCopy.length);
+   //Before we add the new item we need to check if it alread exists in the basket
+   //If it does we need to increase the qty rather than add a new row
+   const itemExists = shoppingBasketCopy.filter(item => item.name === itemToAddObj.name);
+   
+   if (itemExists.length >0){
+      shoppingBasketCopy.forEach(item => {
+        if (item.name === itemToAddObj.name) {
+          item.qty = (item.qty*1) + (itemToAddObj.qty*1)
+        }
+      });
+    }
+    else {
+      shoppingBasketCopy.push(itemToAddObj);
+    }
+    
    this.setState({
      shoppingBasket: shoppingBasketCopy
    });
-
-    this.setState({
-
-    });
   }
+
+
   render() {
 
     const items = pricingData.item;
