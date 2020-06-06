@@ -67,7 +67,7 @@ class App extends React.Component {
       }
     });
 
-    // If an offer has applies add a Savings row to the end of the array
+    // If an offer applies add a Savings row to the end of the array
     if (savingsTotal > 0) {
       savingsTotal = savingsTotal * -1;
       shoppingBasketCopy.push({ name: "Savings", qty: null, itemTotal: savingsTotal });
