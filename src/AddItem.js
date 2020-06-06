@@ -5,12 +5,12 @@ class AddItem extends React.Component {
   state = {
     itemQty: 1,
     itemToAddObj: {
-      name:"",
-      price: 0,
-      qty: 0,
-      itemTotal:0,
-      offer: {}
-    }
+                  name:"",
+                  price: 0,
+                  qty: 0,
+                  itemTotal:0,
+                  offer: {}
+                  }
   }
   updateItem = (event) => {
     this.setState({
@@ -28,9 +28,9 @@ class AddItem extends React.Component {
     if (this.state.itemQty === "") {
       alert("ERROR: You must enter a quantity greater than 0 before pressing the ADD button");
     }
-    // Need to update the quantity value in the object
+    // Need to update the quantity value and the itemTotal in the object
     const tempQty = {qty: this.state.itemQty,
-                     itemTotal: this.state.itemQty * this.state.itemToAddObj.price};
+                     itemTotal: Math.round(this.state.itemQty * this.state.itemToAddObj.price * 100)/100};
     const tempObj = this.state.itemToAddObj;
 
     Object.assign(tempObj, tempQty);
@@ -54,28 +54,28 @@ class AddItem extends React.Component {
 
      this.setState({
        itemToAddObj: {
-      name: name,
-      price: selectedItem[0].price,
-      qty: 0,
-      itemTotal: 0,
-      offer: selectedItem[0].offer
-       }
+                      name: name,
+                      price: selectedItem[0].price,
+                      qty: 0,
+                      itemTotal: 0,
+                      offer: selectedItem[0].offer
+                    }
     });
   };
+
   render() {
     return (
-      // <section className= "add">
       <div className="row paddingabove">
         <div className="col-12 col-lg-1">
           <h3>Item</h3>
         </div>
         <div className="col-12 col-lg-3">
-        <DropDown
+            <DropDown
                   itemArray={this.props.itemArray}
                   saveItemFunc={this.saveItem}
-                  label="AlcoholicItems" style={{ width: "160px" }}
+                  label="Items" style={{ width: "160px" }}
                   key="1"
-                />
+            />
         </div>
 
         <div className="col-12 col-lg-3">
@@ -97,7 +97,6 @@ class AddItem extends React.Component {
            </button>
         </div>
        </div >
-      // {/* </section > */}
     );
   }
 }

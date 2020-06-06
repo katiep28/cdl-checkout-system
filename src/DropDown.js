@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 class Dropdown extends React.Component {
     constructor() {
         super();
@@ -26,7 +24,6 @@ class Dropdown extends React.Component {
     handleDropdownChange(e) {
 
         this.setState({ selectedItem: e.target.value });
-        // What are we going to do here?????
     
         this.props.saveItemFunc(e.target.value);
     }
@@ -47,9 +44,11 @@ class Dropdown extends React.Component {
                 </div>
                 <select name="Item" id="dropdown" onChange={this.handleDropdownChange}>
                     <option>CHOOSE</option>
-                 {this.props.itemArray.map(item => {
-                        return <option key={item.name} value={item.name}> {item.name}{"   "+"£"+(item.price)}
-                        </option>
+                    {this.props.itemArray.map(item => {
+                        return <option key={item.name} 
+                                value={item.name}> 
+                                   {item.name}{"   "+"£"+(item.price)}
+                                </option>
                     })} 
                 </select>
             </div>
