@@ -1,7 +1,8 @@
 import React from 'react';
 // import logo from './logo.svg';
 import AddItem from './AddItem';
-import ListItem from './ListItem';
+import ListItems from './ListItems';
+import ListBasket from './ListBasket';
 import './App.css';
 import pricingData from './data/pricingData.json';
 
@@ -103,17 +104,18 @@ class App extends React.Component {
         </div>
 
         <div className="row paddingabove ">
-          <div className="col-1 col-lg-4">
+        <div className="col-12 col-lg-8 border border-secondary border-thick"/>
+          <div className="col-1 col-lg-2">
             <p align="left">
               Item
             </p>
           </div>
-          <div className="col-10 col-lg-4">
-            <h4 align="center">
-              Quantity
+          <div className="col-10 col-lg-1">
+            <h4 align="left">
+              Qty
             </h4>
           </div>
-          <div className="col-1 col-lg-4">
+          <div className="col-1 col-lg-1">
             <p align="center">
               Item Price
             </p>
@@ -121,10 +123,26 @@ class App extends React.Component {
         </div>
         
         <div className="row paddingbelow ">
-          <div className="col-12 col-lg-12 border border-secondary border-thick" >
+        <div className="col-12 col-lg-7 border border-secondary border-thick">
+              <ol className="list-group">
+              {items.map(item => {
+                return <ListItems
+                  addToBasketFunc={this.addToBasket}
+                  item={item.item}
+                  name={item.name}
+                  price={item.price}
+                  offer={item.offer}
+                  id={item.item}
+                  key={item.item}
+                />
+              })}
+            </ol>
+        </div>
+        <div className="col-1 col-lg-1"/>
+          <div className="col-12 col-lg-4 border border-secondary border-thick" >
             <ol className="list-group">
               {this.state.shoppingBasket.map(item => {
-                return <ListItem
+                return <ListBasket
                   name={item.name}
                   qty={item.qty}
                   itemTotal={item.itemTotal}
@@ -134,7 +152,7 @@ class App extends React.Component {
               })}
             </ol>
           </div>
-        </div>
+          </div>
         <div className="row">
           <div className="col-8 col-lg-8" />
           <div className="col-2 col-lg-2">

@@ -1,24 +1,28 @@
 {
     "item": [
-        {"name":"A",
+        {"item": "A",
+          "name":"Apples",
          "price":0.50,
          "offer":{
             "type":"multibuy",
             "qualqty":3,
             "discount":0.20
         }},
-        {"name":"B",
+        {"item":"B",
+          "name":"Bananas",
          "price":0.30,
          "offer":{
             "type":"multibuy",
             "qualqty":2,
             "discount":0.15
            }},   
-        {"name":"C",
+        {"item":"C",
+          "name":"Carrots",
          "price":0.30,
          "offer":{
            }},  
-        {"name":"D",
+        {"item":"D",
+          "name":"Dates",
          "price":0.15,
          "offer":{
            }}  
