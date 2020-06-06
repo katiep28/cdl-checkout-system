@@ -71,11 +71,12 @@ class ListItems extends React.Component {
 
   render() {
     return (
-      <div className="row paddingabove">
+      <div className="row">
+      {/* <div className="ListItem"> */}
         <div className="col-12 col-lg-4">
           {this.props.name}
         </div>
-        <div className="col-12 col-lg-2">
+        <div className="col-12 col-lg-3">
           <input
             id="addItemQty"
             type="number"
@@ -84,10 +85,10 @@ class ListItems extends React.Component {
             onChange={this.updateItemQty} />
         </div>
 
-        <div className="col-12 col-lg-4">
+        <div className="col-12 col-lg-5">
            <button type="button" 
                    className="btn btn-success btn-lg"
-                   onClick={this.handleClick}>Add
+                   onClick={this.handleClick}> +
            </button>
         </div>
        </div >

@@ -96,33 +96,44 @@ class App extends React.Component {
           </div>
         </div>
 
-        <div className="row" paddingbelow>
+        {/* <div className="row" paddingbelow>
           <div className="col-12 col-lg-12 border border-secondary border-thick">
             <AddItem addToBasketFunc={this.addToBasket}
               itemArray={items} />
           </div>
-        </div>
+        </div> */}
 
         <div className="row paddingabove ">
-        <div className="col-12 col-lg-8 border border-secondary border-thick"/>
+          <div className="col-1 col-lg-2">
+            <p align="left">
+              Item
+            </p>
+          </div>
+          <div className="col-10 col-lg-2">
+            <h4 align="center">
+               Qty
+            </h4>
+          </div>
+          <div className="col-10 col-lg-3"></div>
+          <div className="col-10 col-lg-1"></div>
           <div className="col-1 col-lg-2">
             <p align="left">
               Item
             </p>
           </div>
           <div className="col-10 col-lg-1">
-            <h4 align="left">
+            <h4 align="center">
               Qty
             </h4>
           </div>
           <div className="col-1 col-lg-1">
-            <p align="center">
-              Item Price
+            <p>
+              Price
             </p>
           </div>
         </div>
         
-        <div className="row paddingbelow ">
+        <div className="row paddingbelow">
         <div className="col-12 col-lg-7 border border-secondary border-thick">
               <ol className="list-group">
               {items.map(item => {
@@ -139,7 +150,7 @@ class App extends React.Component {
             </ol>
         </div>
         <div className="col-1 col-lg-1"/>
-          <div className="col-12 col-lg-4 border border-secondary border-thick" >
+        <div className="col-12 col-lg-4 border border-secondary border-thick" >
             <ol className="list-group">
               {this.state.shoppingBasket.map(item => {
                 return <ListBasket
