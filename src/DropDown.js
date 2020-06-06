@@ -47,7 +47,7 @@ class Dropdown extends React.Component {
                     {this.props.itemArray.map(item => {
                         return <option key={item.name} 
                                 value={item.name}> 
-                                   {item.name}{"   "+"£"+(item.price)}
+                                   {item.name + " ....... "+ item.price.toLocaleString("en",{style: "currency", currency:"GBP"})}
                                 </option>
                     })} 
                 </select>

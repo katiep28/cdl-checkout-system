@@ -18,7 +18,8 @@ class ListItem extends React.Component {
         </div>
         <div className="col-4 col-lg-4">
           <div className="itemPrice" align="right">
-            {this.props.itemTotal}
+            {this.props.itemTotal.toLocaleString("en",{style: "currency", currency:"GBP"})}
+        
           </div>
         </div>
       </div>

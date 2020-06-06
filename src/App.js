@@ -141,7 +141,9 @@ class App extends React.Component {
             <h3>Total</h3>
           </div>
           <div className="col-2 col-lg-2">
-            {this.state.totalCost}
+          <p align="right">
+            {this.state.totalCost.toLocaleString("en",{style: "currency", currency:"GBP"})}
+          </p>
           </div>
         </div>
 
