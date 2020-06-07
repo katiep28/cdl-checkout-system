@@ -95,7 +95,10 @@ class App extends React.Component {
         if (item.name === itemToAddObj.name) {
           item.qty = item.qty  + itemToAddObj.qty;
           // If the amount has been reduced to zero then remove from basket
-
+          if (item.qty<0) {
+            alert("ERROR: You have gone below zero");
+            return;
+          }
           if (item.qty === 0) {
             this.deleteFromBasket(item.item);
             //(Offers already applied so do not need to do them again)
@@ -114,6 +117,18 @@ class App extends React.Component {
       this.applyOffers(shoppingBasketCopy);
     }
   }
+  disableButton = (itemToCheck) => {
+  
+  let tempArray = [];
+    tempArray = this.state.shoppingBasket.filter(item => item.item === itemToCheck);
+    if (tempArray.length === 0) {
+       return false;
+    }
+    else {
+      return true;
+    }
+   }
+
 
   render() {
     // Read JSON file
@@ -146,7 +161,7 @@ class App extends React.Component {
                Qty
             </p>
           </div>
-          <div className="col-10 col-lg-1"></div>
+          <div className="col-10 col-lg-2"></div>
           <div className="col-1 col-lg-2">
             <p align="left">
               Item
@@ -162,9 +177,6 @@ class App extends React.Component {
               Price
             </p>
           </div>
-          <div className="col-1 col-lg-1 align=left">
-          <i className="far fa-trash-alt"></i>
-        </div>
         </div>
         
         <div className="row paddingbelow">
@@ -173,6 +185,7 @@ class App extends React.Component {
               {items.map(item => {
                 return <ListItems
                   addToBasketFunc={this.addToBasket}
+                  disableButtonFunc={this.disableButton}
                   item={item.item}
                   name={item.name}
                   price={item.price}

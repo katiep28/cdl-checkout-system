@@ -29,8 +29,7 @@ class DeleteItem extends React.Component {
                             <button type="button" className="btn btn-light btn-sm" disabled>
                             </button>
                         }
-        {/* <button type="button" class="btn btn-light btn-sm">x</button> */}
-        </div>
+               </div>
       </div>
     );
   }

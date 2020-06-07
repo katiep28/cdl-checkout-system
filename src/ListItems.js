@@ -18,9 +18,17 @@ class ListItems extends React.Component {
     })
   }
 
+  hideButton = () => {
+    // Do not want to display the minus button if Item is not in the basket
+    
+    if (this.props.disableButtonFunc(this.props.item)){
+      return true;
+    }
+    else {return false;}
+}
   handleMinusClick = () => {
     if (this.state.itemQty === "") {
-      alert("ERROR: You must enter a quantity greater than 0 before pressing the ADD button");
+      alert("ERROR: You must enter a quantity greater than 0 before pressing the Subtract button");
     }
     //Is the item in the shopping Basket ? If not then this is not
     // Need to update the quantity value and the itemTotal in the object
@@ -78,10 +86,18 @@ class ListItems extends React.Component {
                    className="btn btn-success"
                    onClick={this.handleAddClick}> +
            </button>
-           <button type="button" 
-                   className="btn btn-danger"
-                   onClick={this.handleMinusClick}> -
-           </button>
+           {this.hideButton() 
+                            ?
+                            <button type = "button" className="btn btn-danger"
+                                    onClick={this.handleMinusClick}>-
+                            </button>
+                            :
+                            <button type = "button" className="btn btn-danger" disabled>
+                            </button>
+                            
+                        }
+
+
         </div>
        </div >
     );
