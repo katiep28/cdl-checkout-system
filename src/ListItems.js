@@ -19,6 +19,22 @@ class ListItems extends React.Component {
   }
 
   handleMinusClick = () => {
+    if (this.state.itemQty === "") {
+      alert("ERROR: You must enter a quantity greater than 0 before pressing the ADD button");
+    }
+    //Is the item in the shopping Basket ? If not then this is not
+    // Need to update the quantity value and the itemTotal in the object
+    const tempObj = {item: this.props.item,
+                     name: this.props.name,
+                     qty: this.state.itemQty * -1,
+                     price: this.props.price,
+                     itemTotal: Math.round(this.state.itemQty * this.props.price * 100)/100,
+                     offer: this.props.offer};
+
+    this.props.addToBasketFunc(tempObj);
+    this.setState({
+      itemQty: 1,
+    });
   }
   handleAddClick = () => {
 

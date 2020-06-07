@@ -15,7 +15,7 @@ class App extends React.Component {
   deleteFromBasket = (itemToBeDel) => {
 
     let savingsRemovedArray =[];
-
+console.log("DELETE   " + itemToBeDel)
     //Create and Array that does not contain the item that has been delted
     const reducedBasket = this.state.shoppingBasket.filter(item => item.item !== itemToBeDel);
    
@@ -96,8 +96,14 @@ class App extends React.Component {
     if (itemExists.length > 0) {
       shoppingBasketCopy.forEach(item => {
         if (item.name === itemToAddObj.name) {
-          item.qty = (item.qty * 1) + (itemToAddObj.qty * 1);
-          item.itemTotal = item.qty * item.price;
+          item.qty = item.qty  + itemToAddObj.qty;
+          // If the amount has been reduced to zero then remove from basket
+          
+          console.log("Item Qty  " + item.qty);
+          if (item.qty === 0) {
+            this.deleteFromBasket(item.item);
+          }
+          else {item.itemTotal = item.qty * item.price};
         }
       });
     }
