@@ -1,5 +1,4 @@
 import React from "react";
-import DropDown from './DropDown';
 
 class ListItems extends React.Component {
   state = {
@@ -34,38 +33,11 @@ class ListItems extends React.Component {
                      itemTotal: Math.round(this.state.itemQty * this.props.price * 100)/100,
                      offer: this.props.offer};
 
-    // const tempObj = this.state.itemToAddObj;
-
-    // Object.assign(tempObj, tempQty);
-
-    // this.setState({
-    //   itemToAddObj:{
-    //     qty: tempObj.qty,
-    //     itemTotal: tempObj.itemTotal
-    //   }
-    // });
-      
-    // this.props.addToBasketFunc(this.state.itemToAddObj);
     this.props.addToBasketFunc(tempObj);
     this.setState({
       itemQty: 1,
     });
   }
-
-  // saveItem = (name) => {
-
-  //    const selectedItem = this.props.itemArray.filter(item => item.name === name);
-
-  //    this.setState({
-  //      itemToAddObj: {
-  //                     name: name,
-  //                     price: selectedItem[0].price,
-  //                     qty: 0,
-  //                     itemTotal: 0,
-  //                     offer: selectedItem[0].offer
-  //                   }
-  //   });
-
 
   render() {
     return (
