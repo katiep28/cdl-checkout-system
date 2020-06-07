@@ -4,7 +4,7 @@ import DropDown from './DropDown';
 class ListItems extends React.Component {
   state = {
     itemQty: 1,
-    itemToAddObj: {
+    itemToAddObj: {item:"",
                   name:"",
                   price: 0,
                   qty: 0,
@@ -19,6 +19,8 @@ class ListItems extends React.Component {
     })
   }
 
+  handleMinusClick = () => {
+  }
   handleAddClick = () => {
 
     if (this.state.itemQty === "") {
@@ -68,7 +70,7 @@ class ListItems extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-12 col-lg-6">
+        <div className="col-12 col-lg-5">
           {this.props.name}
         </div>
         <div className="col-12 col-lg-2">
@@ -83,7 +85,7 @@ class ListItems extends React.Component {
             onChange={this.updateItemQty} />
         </div>
 
-        <div className="col-12 col-lg-2">
+        <div className="col-12 col-lg-3">
            <button type="button" 
                    className="btn btn-success"
                    onClick={this.handleAddClick}> +

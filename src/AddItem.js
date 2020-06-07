@@ -5,6 +5,7 @@ class AddItem extends React.Component {
   state = {
     itemQty: 1,
     itemToAddObj: {
+                  item: "",            
                   name:"",
                   price: 0,
                   qty: 0,
@@ -51,9 +52,10 @@ class AddItem extends React.Component {
   saveItem = (name) => {
 
      const selectedItem = this.props.itemArray.filter(item => item.name === name);
-
+console.log("ITEM" + selectedItem[0].item);
      this.setState({
        itemToAddObj: {
+                      item: selectedItem[0].item,
                       name: name,
                       price: selectedItem[0].price,
                       qty: 0,
