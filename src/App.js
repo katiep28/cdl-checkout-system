@@ -1,6 +1,5 @@
 import React from 'react';
 // import logo from './logo.svg';
-import AddItem from './AddItem';
 import ListItems from './ListItems';
 import ListBasket from './ListBasket';
 import './App.css';
@@ -96,26 +95,23 @@ class App extends React.Component {
           </div>
         </div>
 
-        {/* <div className="row" paddingbelow>
-          <div className="col-12 col-lg-12 border border-secondary border-thick">
-            <AddItem addToBasketFunc={this.addToBasket}
-              itemArray={items} />
-          </div>
-        </div> */}
-
         <div className="row paddingabove ">
-          <div className="col-1 col-lg-2">
+          <div className="col-1 col-lg-3">
             <p align="left">
               Item
             </p>
           </div>
-          <div className="col-10 col-lg-2">
-            <h4 align="center">
+          <div className="col-1 col-lg-2">
+          <p align="center">
+              Price
+            </p>
+          </div>
+          <div className="col-10 col-lg-1">
+            <h4 align="left">
                Qty
             </h4>
           </div>
-          <div className="col-10 col-lg-3"></div>
-          <div className="col-10 col-lg-1"></div>
+          <div className="col-10 col-lg-2"></div>
           <div className="col-1 col-lg-2">
             <p align="left">
               Item

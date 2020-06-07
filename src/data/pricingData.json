@@ -17,12 +17,12 @@
             "discount":0.15
            }},   
         {"item":"C",
-          "name":"Carrots",
+          "name":"Carrots (1kg bag)",
          "price":0.30,
          "offer":{
            }},  
         {"item":"D",
-          "name":"Dates",
+          "name":"Dates (punnet)",
          "price":0.15,
          "offer":{
            }}  

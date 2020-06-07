@@ -12,18 +12,14 @@ class ListItems extends React.Component {
                   offer: {}
                   }
   }
-  updateItem = (event) => {
-    this.setState({
-      name: event.target.value
-    })
-  }
+
   updateItemQty = (event) => {
     this.setState({
       itemQty: event.target.value
     })
   }
 
-  handleClick = () => {
+  handleAddClick = () => {
 
     if (this.state.itemQty === "") {
       alert("ERROR: You must enter a quantity greater than 0 before pressing the ADD button");
@@ -72,11 +68,13 @@ class ListItems extends React.Component {
   render() {
     return (
       <div className="row">
-      {/* <div className="ListItem"> */}
-        <div className="col-12 col-lg-4">
+        <div className="col-12 col-lg-6">
           {this.props.name}
         </div>
-        <div className="col-12 col-lg-3">
+        <div className="col-12 col-lg-2">
+          {this.props.price.toLocaleString("en",{style: "currency", currency:"GBP"})}
+        </div>
+        <div className="col-12 col-lg-2">
           <input
             id="addItemQty"
             type="number"
@@ -85,10 +83,14 @@ class ListItems extends React.Component {
             onChange={this.updateItemQty} />
         </div>
 
-        <div className="col-12 col-lg-5">
+        <div className="col-12 col-lg-2">
            <button type="button" 
-                   className="btn btn-success btn-lg"
-                   onClick={this.handleClick}> +
+                   className="btn btn-success"
+                   onClick={this.handleAddClick}> +
+           </button>
+           <button type="button" 
+                   className="btn btn-danger"
+                   onClick={this.handleMinusClick}> -
            </button>
         </div>
        </div >
