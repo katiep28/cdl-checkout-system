@@ -15,18 +15,15 @@ class App extends React.Component {
   deleteFromBasket = (itemToBeDel) => {
 
     let savingsRemovedArray =[];
-console.log("DELETE   " + itemToBeDel)
     //Create and Array that does not contain the item that has been delted
     const reducedBasket = this.state.shoppingBasket.filter(item => item.item !== itemToBeDel);
    
     savingsRemovedArray = this.removeSavingsRow(reducedBasket);
   
     this.applyOffers(savingsRemovedArray);
-
   }
 
   removeSavingsRow = (basketArray) => {
-
     // First if there is an offer row in the array remove it
     // This needs to be recalculated each time an item is added
     if (basketArray.length > 1) {
@@ -98,21 +95,24 @@ console.log("DELETE   " + itemToBeDel)
         if (item.name === itemToAddObj.name) {
           item.qty = item.qty  + itemToAddObj.qty;
           // If the amount has been reduced to zero then remove from basket
-          
-          console.log("Item Qty  " + item.qty);
+
           if (item.qty === 0) {
             this.deleteFromBasket(item.item);
+            //(Offers already applied so do not need to do them again)
           }
-          else {item.itemTotal = item.qty * item.price};
+          else {
+            item.itemTotal = item.qty * item.price;
+            //Apply any offers or discounts
+            this.applyOffers(shoppingBasketCopy);
+          }
         }
       });
     }
     else {
       shoppingBasketCopy.push(itemToAddObj);
+          //Apply any offers or discounts
+      this.applyOffers(shoppingBasketCopy);
     }
-
-    //Apply any offers or discounts
-    this.applyOffers(shoppingBasketCopy);
   }
 
   render() {
