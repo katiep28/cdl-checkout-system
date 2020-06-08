@@ -10,7 +10,6 @@ class DeleteItem extends React.Component {
   hideButton = () => {
     // Do not want to display the delte button on the Savings line
     if (this.props.name === "Savings"){
-      console.log("IN HERE")
         return false;
     }
     else {return true;}

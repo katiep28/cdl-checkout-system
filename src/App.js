@@ -43,10 +43,11 @@ class App extends React.Component {
     
     //Loop through shopping basket to apply any offers or discounts
     // and calculate the basket total.
-    
+   
     basketArray.forEach(item => {
        basketTotal = basketTotal + item.itemTotal;
       //Check the type of offer
+      
       if (item.offer.type === "multibuy") {
         //Check if the item qualifies for the offer
         if (item.qty >= item.offer.qualqty) {
@@ -77,13 +78,14 @@ class App extends React.Component {
 
     let shoppingBasketCopy =[];
 
-    // Remove ths savings row from the array
-    this.removeSavingsRow(shoppingBasketCopy);
-
+    
     //Make a copy of the tasks array. Doing a this.state.tasks.push
     //to access it direactly as this causeses problems
 
     shoppingBasketCopy = this.state.shoppingBasket.slice();
+
+    // Remove ths savings row from the array
+    this.removeSavingsRow(shoppingBasketCopy);
 
     //Before we add the new item we need to check if it alread exists in the basket
     //If it does we need to increase the qty rather than add a new row
@@ -91,6 +93,7 @@ class App extends React.Component {
     const itemExists = shoppingBasketCopy.filter(item => item.name === itemToAddObj.name);
 
     if (itemExists.length > 0) {
+
       shoppingBasketCopy.forEach(item => {
         if (item.name === itemToAddObj.name) {
           item.qty = item.qty  + itemToAddObj.qty;
@@ -156,12 +159,12 @@ class App extends React.Component {
               Price
             </p>
           </div>
-          <div className="col-10 col-lg-1">
+          <div className="col-10 col-lg-2">
             <p align="left">
                Qty
             </p>
           </div>
-          <div className="col-10 col-lg-2"></div>
+          <div className="col-10 col-lg-1"></div>
           <div className="col-1 col-lg-2">
             <p align="left">
               Item

@@ -46,18 +46,22 @@ class ListItems extends React.Component {
   }
   handleAddClick = () => {
 
+    let tempObj = [];
+    tempObj.offer ={};
+
     if (this.state.itemQty === "") {
       alert("ERROR: You must enter a quantity greater than 0 before pressing the ADD button");
     }
     // Need to update the quantity value and the itemTotal in the object
-    const tempObj = {item: this.props.item,
+    tempObj = {item: this.props.item,
                      name: this.props.name,
                      qty: this.state.itemQty,
                      price: this.props.price,
                      itemTotal: Math.round(this.state.itemQty * this.props.price * 100)/100,
                      offer: this.props.offer};
-
+    
     this.props.addToBasketFunc(tempObj);
+    
     this.setState({
       itemQty: 1,
     });
@@ -66,7 +70,7 @@ class ListItems extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-12 col-lg-5">
+        <div className="col-12 col-lg-6">
           {this.props.name}
         </div>
         <div className="col-12 col-lg-2">
@@ -81,23 +85,21 @@ class ListItems extends React.Component {
             onChange={this.updateItemQty} />
         </div>
 
-        <div className="col-12 col-lg-3">
+        <div className="col-12 col-lg-2">
            <button type="button" 
-                   className="btn btn-success"
+                   className="btn btn-success btn-sm"
                    onClick={this.handleAddClick}> +
            </button>
            {this.hideButton() 
                             ?
-                            <button type = "button" className="btn btn-danger"
+                            <button type = "button" className="btn btn-danger btn-sm"
                                     onClick={this.handleMinusClick}>-
                             </button>
                             :
-                            <button type = "button" className="btn btn-danger" disabled>
-                            </button>
-                            
+                            // <button type = "button" className="btn btn-danger" disabled>
+                           <button className="hiddenButton">
+                            </button>   
                         }
-
-
         </div>
        </div >
     );
