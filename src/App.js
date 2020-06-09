@@ -142,13 +142,13 @@ class App extends React.Component {
         <div className="header rounded-pill">
           <div className="row">
             <div className="col-12 col-lg-12">
-              <h1> CDL Checkout App</h1>
+              <h1>CDL Checkout App</h1>
           </div>
         </div>
         </div>
 
         <div className="row">
-          <div className="col-1 col-lg-7">
+          <div className="col-lg-7 hidden-sm">
             <p>Select an item to add to your basket</p>
             <br/>
           </div>

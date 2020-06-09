@@ -4,7 +4,7 @@ class ListBasket extends React.Component {
 
   render() {
     return (
-
+<div className="flexBasket">
       <div className="row padditemrow">
         <div className="col-4 col-lg-7">
           <div>
@@ -22,6 +22,7 @@ class ListBasket extends React.Component {
           </div>
         </div>
       </div>
+  </div>
     );
   }
 }
