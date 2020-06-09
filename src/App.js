@@ -3,6 +3,7 @@ import React from 'react';
 import ListItems from './ListItems';
 import ListBasket from './ListBasket';
 import DeleteItem from './DeleteItem';
+import HandleCheckOut from './HandleCheckOut';
 import './App.css';
 import pricingData from './data/pricingData.json';
 
@@ -120,6 +121,15 @@ class App extends React.Component {
       return true;
     }
    }
+   checkOut = () => {
+    alert("Information: Your order has been placed");
+    
+    this.setState({
+      shoppingBasket: [],
+      totalSavings: 0,
+      totalCost: 0
+    });
+   }
 
 
   render() {
@@ -133,7 +143,20 @@ class App extends React.Component {
           <div className="row">
             <div className="col-12 col-lg-12">
               <h1> CDL Checkout App</h1>
-            </div>
+          </div>
+        </div>
+        </div>
+
+        <div className="row">
+          <div className="col-1 col-lg-7">
+            <p>Please select an item to add to your basket</p>
+            <br/>
+          </div>
+
+          <div className="col-1 col-lg-4">
+            <h4 align="center">
+              BASKET
+            </h4>
           </div>
         </div>
 
@@ -180,6 +203,7 @@ class App extends React.Component {
                   disableButtonFunc={this.disableButton}
                   item={item.item}
                   name={item.name}
+                  image={item.image}
                   price={item.price}
                   offer={item.offer}
                   id={item.item}
@@ -205,7 +229,6 @@ class App extends React.Component {
           </div>
 
           <div className="col-1 col-lg-1">
-
           <ol className="list-group">
               {this.state.shoppingBasket.map(item => {
                 return <DeleteItem
@@ -231,6 +254,8 @@ class App extends React.Component {
             {this.state.totalSavings.toLocaleString("en",{style: "currency", currency:"GBP"})}
           </p>
           </div>
+
+          <div className="col-2 col-lg-1"/>
         </div>
 
         <div className="row">
@@ -243,7 +268,23 @@ class App extends React.Component {
             {this.state.totalCost.toLocaleString("en",{style: "currency", currency:"GBP"})}
           </p>
           </div>
+          <div className="col-2 col-lg-1"/>
         </div>
+
+        <div className="row">
+          <div className="col-8 col-lg-7" />
+          <div className="col-2 col-lg-5">
+              <HandleCheckOut  
+                  checkOutFunc={this.checkOut}
+                  shoppingBasket={this.state.shoppingBasket}
+                  id="1"
+                  key="1"
+                />
+          </div>
+      
+        </div>
+
+
     </div>
     );
   }

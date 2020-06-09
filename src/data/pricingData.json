@@ -2,6 +2,7 @@
     "item": [
         {"item": "A",
           "name":"Apples",
+          "image":"apples.png",
          "price":0.50,
          "offer":{
             "type":"multibuy",
@@ -11,6 +12,7 @@
         }},
         {"item":"B",
           "name":"Bananas",
+          "image":"bananas.png",
          "price":0.30,
          "offer":{
             "type":"multibuy",
@@ -20,11 +22,13 @@
            }},   
         {"item":"C",
           "name":"Carrots (1kg bag)",
+          "image":"carrots.png",
          "price":0.30,
          "offer":{
            }},  
         {"item":"D",
           "name":"Dates (punnet)",
+          "image":"dates.png",
          "price":0.15,
          "offer":{
            }}  

@@ -88,7 +88,10 @@ class ListItems extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-12 col-lg-6">
+        <div className="col-12 col-lg-1">       
+           <img src={require("./images/" + this.props.image)} alt={this.props.desc}/>
+        </div>
+        <div className="col-12 col-lg-5">
           {this.props.name}
           <p className="offer"> {this.props.offer.desc}</p>
         </div>
