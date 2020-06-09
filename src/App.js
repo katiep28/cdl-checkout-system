@@ -149,15 +149,15 @@ class App extends React.Component {
 
         <div className="row">
           <div className="col-1 col-lg-7">
-            <p>Please select an item to add to your basket</p>
+            <p>Select an item to add to your basket</p>
             <br/>
           </div>
 
-          <div className="col-1 col-lg-4">
-            <h4 align="center">
-              BASKET
-            </h4>
+          <div className="col-1 col-lg-4" align="center">
+          <img src={require("./images/shoppingbasket.png")} alt="Shopping Basket"/>
           </div>
+
+          <div className="col-1 col-lg-1"/>
         </div>
 
         <div className="row paddingabove ">
