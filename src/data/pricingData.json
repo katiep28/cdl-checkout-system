@@ -5,6 +5,7 @@
          "price":0.50,
          "offer":{
             "type":"multibuy",
+            "desc": "Buy 3 for £1.30",
             "qualqty":3,
             "discount":0.20
         }},
@@ -13,6 +14,7 @@
          "price":0.30,
          "offer":{
             "type":"multibuy",
+            "desc":"Buy 2 for 45p",
             "qualqty":2,
             "discount":0.15
            }},   

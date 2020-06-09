@@ -49,8 +49,26 @@ class ListItems extends React.Component {
     let tempObj = [];
     tempObj.offer ={};
 
-    if (this.state.itemQty === "") {
+    //Error checks for qty value
+    if (this.state.itemQty === "" ||
+        this.state.itemQty <= 0) {
       alert("ERROR: You must enter a quantity greater than 0 before pressing the ADD button");
+      
+      this.setState({
+        itemQty: 1,
+      });
+
+      return;
+    }
+
+    if (this.state.itemQty > 20 ){
+      alert("ERROR: You can only have a quantity of upto 20 for any single item");
+      
+      this.setState({
+        itemQty: 1,
+      });
+
+      return;
     }
     // Need to update the quantity value and the itemTotal in the object
     tempObj = {item: this.props.item,
@@ -72,6 +90,7 @@ class ListItems extends React.Component {
       <div className="row">
         <div className="col-12 col-lg-6">
           {this.props.name}
+          <p className="offer"> {this.props.offer.desc}</p>
         </div>
         <div className="col-12 col-lg-2">
           {this.props.price.toLocaleString("en",{style: "currency", currency:"GBP"})}

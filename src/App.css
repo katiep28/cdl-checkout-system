@@ -1,6 +1,8 @@
 body {
-  background-color: whitesmoke;
+  background-color: white;
   min-height: 100vh;
+  font-family: 'Roboto Slab', serif;
+  /* font-size: 20pt; */
   /* display: flex; */
   /* flex-direction: column; */
   /* align-items: center; */
@@ -11,6 +13,7 @@ body {
 
 .header {
 background-color: gray;
+font-family: 'Roboto Slab', serif;
 display: flex; 
 flex-direction: column;
  align-items: center;
@@ -22,6 +25,18 @@ padding-bottom: 10px;
 margin-bottom: 100px;
 }
 
+
 .hiddenButton{
   visibility: hidden;
+}
+.offer {
+  color: red;
+  font-size: medium;
+}
+.savingsTotal {
+  color: red;
+}
+
+.shoppingBasket {
+  background-color: green;
 }

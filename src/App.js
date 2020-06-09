@@ -9,7 +9,8 @@ import pricingData from './data/pricingData.json';
 class App extends React.Component {
   state = {
     shoppingBasket: [],
-    totalCost: 0
+    totalCost: 0,
+    totalSavings:0
   }
 
   deleteFromBasket = (itemToBeDel) => {
@@ -47,7 +48,7 @@ class App extends React.Component {
     basketArray.forEach(item => {
        basketTotal = basketTotal + item.itemTotal;
       //Check the type of offer
-      
+
       if (item.offer.type === "multibuy") {
         //Check if the item qualifies for the offer
         if (item.qty >= item.offer.qualqty) {
@@ -69,6 +70,7 @@ class App extends React.Component {
 
     this.setState({
       shoppingBasket: basketArray,
+      totalSavings: savingsTotal,
       totalCost: basketTotal
     });
 
@@ -77,6 +79,7 @@ class App extends React.Component {
   addToBasket = (itemToAddObj) => {
 
     let shoppingBasketCopy =[];
+    let tempItemQty = 0;
 
     
     //Make a copy of the tasks array. Doing a this.state.tasks.push
@@ -96,17 +99,23 @@ class App extends React.Component {
 
       shoppingBasketCopy.forEach(item => {
         if (item.name === itemToAddObj.name) {
-          item.qty = item.qty  + itemToAddObj.qty;
+          tempItemQty = (item.qty*1)  + (itemToAddObj.qty*1);
           // If the amount has been reduced to zero then remove from basket
-          if (item.qty<0) {
-            alert("ERROR: You have gone below zero");
+          if (tempItemQty<0) {
+            alert("ERROR: Your quantity for this item has gone below zero");
             return;
           }
-          if (item.qty === 0) {
+          if (tempItemQty > 20){
+            alert("ERROR: You can only have a quantity of upto 20 for any single item in your basket");
+            return;
+          }
+          if (tempItemQty === 0) {
             this.deleteFromBasket(item.item);
             //(Offers already applied so do not need to do them again)
           }
+
           else {
+            item.qty = (item.qty*1)  + (itemToAddObj.qty*1);
             item.itemTotal = item.qty * item.price;
             //Apply any offers or discounts
             this.applyOffers(shoppingBasketCopy);
@@ -140,7 +149,7 @@ class App extends React.Component {
     return (
 
       <div className="container">
-        <div className="header">
+        <div className="header rounded-pill">
           <div className="row">
             <div className="col-12 col-lg-12">
               <h1> CDL Checkout App</h1>
@@ -183,7 +192,7 @@ class App extends React.Component {
         </div>
         
         <div className="row paddingbelow">
-        <div className="col-12 col-lg-6 border border-secondary border-thick">
+        <div className="col-12 col-lg-6 bg-light border border-secondary border-thick rounded">
               <ol className="list-group">
               {items.map(item => {
                 return <ListItems
@@ -200,8 +209,9 @@ class App extends React.Component {
             </ol>
         </div>
         <div className="col-1 col-lg-1"/>
-        <div className="col-12 col-lg-4 border border-secondary border-thick" >
-            <ol className="list-group">
+        <div className="col-12 col-lg-4 bg-light text-dark border border-secondary border-thick bg-info text-white rounded" >
+        
+           <ol className="list-group">
               {this.state.shoppingBasket.map(item => {
                 return <ListBasket
                   name={item.name}
@@ -213,7 +223,9 @@ class App extends React.Component {
               })}
             </ol>
           </div>
+
           <div className="col-1 col-lg-1">
+
           <ol className="list-group">
               {this.state.shoppingBasket.map(item => {
                 return <DeleteItem
@@ -225,8 +237,26 @@ class App extends React.Component {
                 />
               })}
             </ol>
+      
           </div>
          </div> 
+
+         <div className="row">
+          <div className="col-8 col-lg-7" />
+          <div className="col-2 col-lg-2">
+            <h3 className="savingsTotal">Savings</h3>
+          </div>
+          <div className="col-2 col-lg-2">         
+          <p className="savingsTotal" align="right">
+            {this.state.totalSavings.toLocaleString("en",{style: "currency", currency:"GBP"})}
+          </p>
+          </div>
+          <div className="col-8 col-lg-7" />
+        </div>
+
+
+
+
         <div className="row">
           <div className="col-8 col-lg-7" />
           <div className="col-2 col-lg-2">
@@ -239,8 +269,7 @@ class App extends React.Component {
           </div>
           <div className="col-8 col-lg-7" />
         </div>
-
-      </div>
+    </div>
     );
   }
 }
