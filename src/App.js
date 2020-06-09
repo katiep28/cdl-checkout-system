@@ -15,28 +15,11 @@ class App extends React.Component {
 
   deleteFromBasket = (itemToBeDel) => {
 
-    let savingsRemovedArray =[];
     //Create and Array that does not contain the item that has been delted
     const reducedBasket = this.state.shoppingBasket.filter(item => item.item !== itemToBeDel);
-   
-    savingsRemovedArray = this.removeSavingsRow(reducedBasket);
   
-    this.applyOffers(savingsRemovedArray);
+    this.applyOffers(reducedBasket);
   }
-
-  removeSavingsRow = (basketArray) => {
-    // First if there is an offer row in the array remove it
-    // This needs to be recalculated each time an item is added
-    if (basketArray.length > 1) {
-
-      const lastItem = basketArray.length - 1;
-
-      if (basketArray[lastItem].name === "Savings") {
-        basketArray.pop();
-      }
-    }
-    return basketArray;
-}
 
   applyOffers = (basketArray) => {
     let basketTotal = 0;
@@ -64,7 +47,7 @@ class App extends React.Component {
     // If an offer applies add a Savings row to the end of the array
     if (savingsTotal > 0) {
       savingsTotal = savingsTotal * -1;
-      basketArray.push({ item: "S", name: "Savings", qty: null, itemTotal: savingsTotal });
+      // basketArray.push({ item: "S", name: "Savings", qty: null, itemTotal: savingsTotal });
       basketTotal = basketTotal + savingsTotal;
     }
 
@@ -86,9 +69,6 @@ class App extends React.Component {
     //to access it direactly as this causeses problems
 
     shoppingBasketCopy = this.state.shoppingBasket.slice();
-
-    // Remove ths savings row from the array
-    this.removeSavingsRow(shoppingBasketCopy);
 
     //Before we add the new item we need to check if it alread exists in the basket
     //If it does we need to increase the qty rather than add a new row
@@ -251,11 +231,7 @@ class App extends React.Component {
             {this.state.totalSavings.toLocaleString("en",{style: "currency", currency:"GBP"})}
           </p>
           </div>
-          <div className="col-8 col-lg-7" />
         </div>
-
-
-
 
         <div className="row">
           <div className="col-8 col-lg-7" />
@@ -267,7 +243,6 @@ class App extends React.Component {
             {this.state.totalCost.toLocaleString("en",{style: "currency", currency:"GBP"})}
           </p>
           </div>
-          <div className="col-8 col-lg-7" />
         </div>
     </div>
     );
