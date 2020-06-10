@@ -1,25 +1,23 @@
-Design
+Check Out System
 
-To be able to change the prcicing data regularly a JSON file will be passed in containing the pricing information. This will look something like this :
-{
-    item:"apple",
-    price:0.15,
-    offer{type:"multibuy",
-          qty:3
-          discount:0.2}
-}
+This app has been created using ReactJS.
 
-There could be different types of offer in the future eg Buy one get one free or just 20% discount. This format will be able to handle those. The code would check the type and then apply a rule.
+The purpose of the app is to load items into the app that can then be selected to go into a shopping basket. The items can have offers applied and this needs to be reflected in the total shopping basket.
 
-The screen layout will have 2 areas:
-      A header area with a dropdown list showing the items available to buy a quantity field for how many of this item they want and an ADD button to add the item to the basket.
+The checkout process has not been implemented int this phase. The data either needs to be written to a JSON file or a database. 
 
-      The lower part of the screen will have a list of the items added to the basket with a running total at the bottom.
+The items to be purchased are read in from a JSON file which can be changed regularly to reflect the different offers available (src/data/pricingData.json).
 
-Each time an item is selected it will be added to an array. The code will check if the item already exists and if so just update the quantity.
+The layout is responsive for mobile devices as well as laptops.
 
-Each time a new item is added to the shopping basket the code will check if there is an offer to apply and a running total will be maintained.
+I have implemented some automated tests.
 
+Future enhancements:
+      Implement all the different offer types eg Percentage discounts etc. once the rules have been defined.
+      Implement the checkout feature. Store the data in a Database and create APIs using Lambda functions to access them.
+      Add more tests.
+
+The app has been deployed and to run it use the link :
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
