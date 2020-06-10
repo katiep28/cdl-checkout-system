@@ -1,5 +1,4 @@
 import React from 'react';
-// import logo from './logo.svg';
 import ListItems from './ListItems';
 import ListBasket from './ListBasket';
 import DeleteItem from './DeleteItem';
@@ -31,8 +30,8 @@ class App extends React.Component {
    
     basketArray.forEach(item => {
        basketTotal = basketTotal + item.itemTotal;
-      //Check the type of offer
-
+      
+       //Check the type of offer
       if (item.offer.type === "multibuy") {
         //Check if the item qualifies for the offer
         if (item.qty >= item.offer.qualqty) {
@@ -45,10 +44,9 @@ class App extends React.Component {
       }
     });
 
-    // If an offer applies add a Savings row to the end of the array
+    // If an offer applies calculate the total savings
     if (savingsTotal > 0) {
       savingsTotal = savingsTotal * -1;
-      // basketArray.push({ item: "S", name: "Savings", qty: null, itemTotal: savingsTotal });
       basketTotal = basketTotal + savingsTotal;
     }
 
@@ -65,7 +63,6 @@ class App extends React.Component {
     let shoppingBasketCopy =[];
     let tempItemQty = 0;
 
-    
     //Make a copy of the tasks array. Doing a this.state.tasks.push
     //to access it direactly as this causeses problems
 
@@ -92,7 +89,7 @@ class App extends React.Component {
           }
           if (tempItemQty === 0) {
             this.deleteFromBasket(item.item);
-            //(Offers already applied so do not need to do them again)
+            //(Offers already applied in delete function so do not need to do them again)
           }
 
           else {
@@ -148,12 +145,12 @@ class App extends React.Component {
         </div>
 
         <div className="row">
-          <div className="d-none d-xl-block col-lg-7 ">
+          <div className="col-12 col-lg-7 ">
             <p>Select an item to add to your basket</p>
             <br/>
           </div>
 
-          <div className="d-none d-xl-block col-1 col-lg-4" align="center">
+          <div className="d-none d-lg-block d-xl-block col-1 col-lg-4" align="center">
           <img src={require("./images/shoppingbasket.png")} alt="Shopping Basket"/>
           </div>
 
@@ -283,10 +280,7 @@ class App extends React.Component {
                   key="1"
                 />
           </div>
-      
         </div>
-
-
     </div>
     );
   }
