@@ -214,9 +214,9 @@ class App extends React.Component {
             </ol>
         </div>
         <div className="col-12 col-lg-1">
-           <img className="d-block d-xl-none d-lg-none" src={require("./images/shoppingbasket.png")} alt="Shopping Basket" align="center"/>
+           <img className="mx-auto d-block d-xl-none d-lg-none" src={require("./images/shoppingbasket.png")} alt="Shopping Basket"/>
         </div>
-        <div className="col-11 col-lg-4 bg-light text-dark border border-secondary border-thick bg-info text-white rounded" >
+        <div className="col-11 col-lg-4 bg-light text-dark border border-secondary border-thick bg-info rounded" >
         
            <ol className="list-group">
               {this.state.shoppingBasket.map(item => {
