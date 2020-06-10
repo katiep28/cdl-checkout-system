@@ -88,17 +88,17 @@ class ListItems extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-12 col-lg-1">       
+        <div className="d-none d-sm-block d-md-block col-1 col-md-1 col-lg-1">       
            <img src={require("./images/" + this.props.image)} alt={this.props.desc}/>
         </div>
-        <div className="col-12 col-lg-5">
+        <div className="col-4 col-md-4 col-lg-5">
           {this.props.name}
           <p className="offer"> {this.props.offer.desc}</p>
         </div>
-        <div className="col-12 col-lg-2">
+        <div className="col-2 col-md-2 col-lg-2">
           {this.props.price.toLocaleString("en",{style: "currency", currency:"GBP"})}
         </div>
-        <div className="col-12 col-lg-2">
+        <div className="col-3 col-md-2 col-lg-2">
           <input
             id="addItemQty"
             type="number"
@@ -107,7 +107,7 @@ class ListItems extends React.Component {
             onChange={this.updateItemQty} />
         </div>
 
-        <div className="col-12 col-lg-2">
+        <div className="col-3 col-md-3 col-lg-2">
            <button type="button" 
                    className="btn btn-success btn-sm"
                    onClick={this.handleAddClick}> +

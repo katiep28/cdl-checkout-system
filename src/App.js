@@ -148,12 +148,12 @@ class App extends React.Component {
         </div>
 
         <div className="row">
-          <div className="col-lg-7 hidden-sm">
+          <div className="d-none d-xl-block col-lg-7 ">
             <p>Select an item to add to your basket</p>
             <br/>
           </div>
 
-          <div className="col-1 col-lg-4" align="center">
+          <div className="d-none d-xl-block col-1 col-lg-4" align="center">
           <img src={require("./images/shoppingbasket.png")} alt="Shopping Basket"/>
           </div>
 
@@ -161,37 +161,38 @@ class App extends React.Component {
         </div>
 
         <div className="row paddingabove ">
-          <div className="col-1 col-lg-3">
+          <div className="col-4 col-md-5 col-lg-3">
             <p align="left">
               Item 
             </p>
           </div>
-          <div className="col-1 col-lg-1">
+          <div className="col-2 col-md-2 col-lg-1">
           <p align="left">
               Price
             </p>
           </div>
-          <div className="col-10 col-lg-2">
+          <div className="col-3 col-md-3 col-lg-2">
             <p align="left">
                Qty
             </p>
           </div>
-          <div className="col-10 col-lg-1"></div>
-          <div className="col-1 col-lg-2">
+          <div className=" d-none d-lg-block col-1 col-lg-1"></div>
+          <div className="d-none d-lg-block col-2 col-lg-2">
             <p align="left">
               Item
             </p>
           </div>
-          <div className="col-10 col-lg-1">
-            <h4 align="center">
+          <div className="d-none d-lg-block col-1 col-lg-1">
+            <p align="center">
               Qty
-            </h4>
+            </p>
           </div>
-          <div className="col-1 col-lg-1">
+          <div className="d-none d-lg-block col-1 col-lg-1">
             <p>
               Price
             </p>
           </div>
+          <div className="d-none d-lg-block col-1 col-lg-1"/>
         </div>
         
         <div className="row paddingbelow">
@@ -212,7 +213,9 @@ class App extends React.Component {
               })}
             </ol>
         </div>
-        <div className="col-1 col-lg-1"/>
+        <div className="col-12 col-lg-1">
+      <p>HELLO</p>
+      </div>
         <div className="col-12 col-lg-4 bg-light text-dark border border-secondary border-thick bg-info text-white rounded" >
         
            <ol className="list-group">
