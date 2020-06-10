@@ -1,12 +1,12 @@
-Check Out System
+Checkout App
 
 This app has been created using ReactJS.
 
-The purpose of the app is to load items into the app that can then be selected to go into a shopping basket. The items can have offers applied and this needs to be reflected in the total shopping basket.
+The purpose of the app is to load items into the app that can then be selected to go into a shopping basket. A running total is maintained of the items in the shopping basket and any discounts that have been applied. Items can be added or deleted from the basket or the quantity increased or decreased. The items can have offers applied and this needs to be reflected in the total cost of the shopping.
 
-The checkout process has not been implemented int this phase. The data either needs to be written to a JSON file or a database. 
+The checkout process has not been implemented in this phase. 
 
-The items to be purchased are read in from a JSON file which can be changed regularly to reflect the different offers available (src/data/pricingData.json).
+The items to be purchased are read in from a JSON file which can be changed regularly to reflect the different offers/prices available (src/data/pricingData.json).
 
 The layout is responsive for mobile devices as well as laptops.
 
@@ -18,6 +18,8 @@ Future enhancements:
       Add more tests.
 
 The app has been deployed and to run it use the link :
+
+                  https://katiep28.github.io/cdl-checkout-system        
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

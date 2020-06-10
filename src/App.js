@@ -213,7 +213,7 @@ class App extends React.Component {
         <div className="col-12 col-lg-1">
            <img className="mx-auto d-block d-xl-none d-lg-none" src={require("./images/shoppingbasket.png")} alt="Shopping Basket"/>
         </div>
-        <div className="col-11 col-lg-4 bg-light text-dark border border-secondary border-thick bg-info rounded" >
+        <div className="col-10 col-lg-4 bg-light text-dark border border-secondary border-thick bg-info rounded" >
         
            <ol className="list-group">
               {this.state.shoppingBasket.map(item => {
@@ -246,7 +246,7 @@ class App extends React.Component {
 
          <div className="row">
           <div className="d-none d-xl-block d-lg-block col-8 col-lg-7" />
-          <div className="col-7 col-lg-2">
+          <div className="col-6 col-lg-2">
             <h3 className="savingsTotal">Savings</h3>
           </div>
           <div className="col-4 col-lg-2">         
@@ -259,7 +259,7 @@ class App extends React.Component {
 
         <div className="row">
           <div className="d-none d-xl-block d-lg-block col-8 col-lg-7" />
-          <div className="col-7 col-lg-2">
+          <div className="col-6 col-lg-2">
             <h3>Total</h3>
           </div>
           <div className="col-4 col-lg-2">
