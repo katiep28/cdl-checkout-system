@@ -15,7 +15,7 @@ class ListBasket extends React.Component {
             {this.props.qty}
           </div>
         </div>
-        <div className="col-4 col-lg-4">
+        <div className="col-4 col-lg-2">
           <div className="itemPrice" align="right">
             {this.props.itemTotal.toLocaleString("en",{style: "currency", currency:"GBP"})}
           </div>

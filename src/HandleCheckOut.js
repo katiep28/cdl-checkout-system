@@ -20,7 +20,7 @@ class HandleCheckOut extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-4 col-lg-10 rounded-pill">
+        <div className="col-12 col-lg-10 rounded-pill">
         {this.hideButton() 
                             ?
                             <button type = "button" className="btn btn-info btn-block btn-lg"

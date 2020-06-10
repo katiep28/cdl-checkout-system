@@ -214,7 +214,7 @@ class App extends React.Component {
             </ol>
         </div>
         <div className="col-12 col-lg-1">
-           <img className="d-block d-xl-none" src={require("./images/shoppingbasket.png")} alt="Shopping Basket" align="center"/>
+           <img className="d-block d-xl-none d-lg-none" src={require("./images/shoppingbasket.png")} alt="Shopping Basket" align="center"/>
         </div>
         <div className="col-11 col-lg-4 bg-light text-dark border border-secondary border-thick bg-info text-white rounded" >
         
@@ -248,35 +248,34 @@ class App extends React.Component {
          </div> 
 
          <div className="row">
-          <div className="col-8 col-lg-7" />
-          <div className="col-2 col-lg-2">
+          <div className="d-none d-xl-block d-lg-block col-8 col-lg-7" />
+          <div className="col-7 col-lg-2">
             <h3 className="savingsTotal">Savings</h3>
           </div>
-          <div className="col-2 col-lg-2">         
-          <p className="savingsTotal" align="right">
+          <div className="col-4 col-lg-2">         
+          <h3 className="savingsTotal" align="right">
             {this.state.totalSavings.toLocaleString("en",{style: "currency", currency:"GBP"})}
-          </p>
+          </h3>
           </div>
-
-          <div className="col-2 col-lg-1"/>
+          <div className="cd-none d-xl-block col-1 col-lg-1"/>
         </div>
 
         <div className="row">
-          <div className="col-8 col-lg-7" />
-          <div className="col-2 col-lg-2">
+          <div className="d-none d-xl-block d-lg-block col-8 col-lg-7" />
+          <div className="col-7 col-lg-2">
             <h3>Total</h3>
           </div>
-          <div className="col-2 col-lg-2">
-          <p align="right">
+          <div className="col-4 col-lg-2">
+          <h3 align="right">
             {this.state.totalCost.toLocaleString("en",{style: "currency", currency:"GBP"})}
-          </p>
+          </h3>
           </div>
-          <div className="col-2 col-lg-1"/>
+          <div className="d-none d-xl-block col-1 col-lg-1"/>
         </div>
 
         <div className="row">
-          <div className="col-8 col-lg-7" />
-          <div className="col-2 col-lg-5">
+          <div className="d-none d-xl-block d-lg-block col-8 col-lg-7" />
+          <div className="col-12 col-lg-5">
               <HandleCheckOut  
                   checkOutFunc={this.checkOut}
                   shoppingBasket={this.state.shoppingBasket}
