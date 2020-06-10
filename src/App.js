@@ -214,7 +214,8 @@ class App extends React.Component {
             </ol>
         </div>
         <div className="col-12 col-lg-1">
-      <p>HELLO</p>
+      {/* <p className="d-block d-sm-none">HELLO</p> */}
+      <img className="d-block d-xl-none" src={require("./images/shoppingbasket.png")} alt="Shopping Basket" align="center"/>
       </div>
         <div className="col-12 col-lg-4 bg-light text-dark border border-secondary border-thick bg-info text-white rounded" >
         
