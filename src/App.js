@@ -214,10 +214,9 @@ class App extends React.Component {
             </ol>
         </div>
         <div className="col-12 col-lg-1">
-      {/* <p className="d-block d-sm-none">HELLO</p> */}
-      <img className="d-block d-xl-none" src={require("./images/shoppingbasket.png")} alt="Shopping Basket" align="center"/>
-      </div>
-        <div className="col-12 col-lg-4 bg-light text-dark border border-secondary border-thick bg-info text-white rounded" >
+           <img className="d-block d-xl-none" src={require("./images/shoppingbasket.png")} alt="Shopping Basket" align="center"/>
+        </div>
+        <div className="col-11 col-lg-4 bg-light text-dark border border-secondary border-thick bg-info text-white rounded" >
         
            <ol className="list-group">
               {this.state.shoppingBasket.map(item => {
@@ -233,16 +232,16 @@ class App extends React.Component {
           </div>
 
           <div className="col-1 col-lg-1">
-          <ol className="list-group">
-              {this.state.shoppingBasket.map(item => {
-                return <DeleteItem
-                  deleteFromBasketFunc={this.deleteFromBasket}
-                  item={item.item}
-                  name={item.name}
-                  id={item.name}
-                  key={item.name}
-                />
-              })}
+            <ol className="list-group">
+                {this.state.shoppingBasket.map(item => {
+                  return <DeleteItem
+                    deleteFromBasketFunc={this.deleteFromBasket}
+                    item={item.item}
+                    name={item.name}
+                    id={item.name}
+                    key={item.name}
+                 />
+                })}
             </ol>
       
           </div>
