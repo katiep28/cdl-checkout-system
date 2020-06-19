@@ -90,13 +90,28 @@ class ListItems extends React.Component {
       itemQty: 1,
     });
   }
+ 
+  checkImage = (image) => {
+    //if the image does not exist display a dummy image
+    
+    let imagePath = '';
+    
+    try {
+        imagePath = require("./images/" + image); 
+        } 
+    catch (error) {
+        image = "noImage.png";
+      }
+     
+     return image;
+  }
 
   render() {
     return (
       <div className="Container">
         <div className="row">
           <div className="d-none d-sm-block d-md-block col-1 col-md-1 col-lg-1">
-            <img src={require("./images/" + this.props.image)} alt={this.props.desc} />
+            <img src={require("./images/" + this.checkImage(this.props.image))} alt={this.props.desc} />
           </div>
           <div className="col-4 col-md-4 col-lg-5">
             {this.props.name}

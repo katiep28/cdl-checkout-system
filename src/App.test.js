@@ -1,6 +1,9 @@
 import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
+// =================================================
+import { unmountComponentAtNode } from "react-dom";
+
 
 
 it('renders without crashing', () => {
@@ -40,6 +43,21 @@ it('Checkout Button exists', () => {
   expect(wrapper.contains(welcome)).toEqual(true);
 });
 
+// ===================================================
 
+
+let container = null;
+beforeEach(() => {
+  // setup a DOM element as a render target
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  // cleanup on exiting
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
 
 
