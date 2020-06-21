@@ -4,6 +4,9 @@ import ListBasket from './ListBasket';
 import DeleteItem from './DeleteItem';
 import HandleCheckOut from './HandleCheckOut';
 import './App.css';
+
+import uuid from "uuid/dist/v4";
+
 import axios from "axios";
 
 import pricingData from './data/pricingData.json';
@@ -121,17 +124,43 @@ class App extends React.Component {
     }
    }
    checkOut = () => {
-    const data = {
+
+    //Insert header details for the shopping
+    const usershopheaderid = uuid();
+    const header = {
+      id: usershopheaderid,
       savings: this.state.totalSavings,
       totalcost: this.state.totalCost
     }
-    axios.post('https://z46c2yzan8.execute-api.eu-west-2.amazonaws.com/dev/createheader', data)
+    axios.post('https://z46c2yzan8.execute-api.eu-west-2.amazonaws.com/dev/createheader', header)
     .then(function (response) {
       console.log(response);
     })
     .catch(function (error) {
       console.log(error);
     });
+
+    //Insert Items into the database
+    let i=0;
+    this.state.shoppingBasket.forEach(item => {
+      i++;
+      let itemobj = {
+        itemid: i,
+        usershopheaderid: usershopheaderid,
+        itemname: item.name,
+        qty: item.qty,
+        price: item.price
+      }
+      axios.post('https://z46c2yzan8.execute-api.eu-west-2.amazonaws.com/dev/createitems', itemobj)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      itemobj={};
+  });
+
     alert("Information: Your order has been placed");
     
     this.setState({
