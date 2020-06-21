@@ -4,6 +4,8 @@ import ListBasket from './ListBasket';
 import DeleteItem from './DeleteItem';
 import HandleCheckOut from './HandleCheckOut';
 import './App.css';
+import axios from "axios";
+
 import pricingData from './data/pricingData.json';
 
 class App extends React.Component {
@@ -119,6 +121,17 @@ class App extends React.Component {
     }
    }
    checkOut = () => {
+    const data = {
+      savings: this.state.totalSavings,
+      totalcost: this.state.totalCost
+    }
+    axios.post('https://z46c2yzan8.execute-api.eu-west-2.amazonaws.com/dev/createheader', data)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
     alert("Information: Your order has been placed");
     
     this.setState({
