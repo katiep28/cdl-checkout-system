@@ -10,12 +10,12 @@ class ListBasket extends React.Component {
             {this.props.name}
           </div>
         </div>
-        <div className="col-2 col-lg-1">
+        <div className="col-2 col-lg-2">
           <div className="qty" align="right">
             {this.props.qty}
           </div>
         </div>
-        <div className="col-3 col-lg-2">
+        <div className="col-3 col-lg-3">
           <div className="itemPrice" align="right">
             {this.props.itemTotal.toLocaleString("en",{style: "currency", currency:"GBP"})}
           </div>

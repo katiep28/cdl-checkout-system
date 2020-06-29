@@ -21,8 +21,6 @@ afterEach(() => {
 const  mockdisableButtonFunc = jest.fn();
 const offerTest = {desc: "cheap apples"};
 
-
-
 it("renders with missing image, name and price", () => {
 
   act(() => {
@@ -46,7 +44,6 @@ it("renders with missing image, name and price", () => {
   expect(container.textContent).toBe("cucumber + ");
 
 });
-
 
 it("Image missing or incorrect file name", () => {
 

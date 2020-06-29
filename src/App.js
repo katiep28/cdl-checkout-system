@@ -189,7 +189,7 @@ class App extends React.Component {
         <div className="row">
           <div className="col-12 col-lg-7 ">
             <p>Select an item to add to your basket</p>
-            <br/>
+            {/* <br/> */}
           </div>
 
           <div className="d-none d-lg-block d-xl-block col-1 col-lg-4" align="center">
