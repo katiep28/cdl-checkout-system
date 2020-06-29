@@ -19,25 +19,11 @@ afterEach(() => {
 });
 
 const  mockdisableButtonFunc = jest.fn();
+const offerTest = {desc: "cheap apples"};
 
-it("Image missing or incorrect file name", () => {
 
-  act(() => {
-    render(<ListItems image="" name="Apples" price="1.23"  offer= "{}" disableButtonFunc={mockdisableButtonFunc}
-    />, 
-    container);
-  });
-  expect(container.textContent).toBe("Apples1.23 + ");
-  act(() => {
-    render(<ListItems image="pples.png" name="grapes" price="0.23"  offer= "{}" disableButtonFunc={mockdisableButtonFunc}
-    />, 
-    container);
-  });
-  expect(container.textContent).toBe("grapes0.23 + ");
 
-});
-
-it("renders with missing name and price", () => {
+it("renders with missing image, name and price", () => {
 
   act(() => {
     render(<ListItems image="" name="" price=""  offer= "{}" disableButtonFunc={mockdisableButtonFunc}
@@ -61,6 +47,24 @@ it("renders with missing name and price", () => {
 
 });
 
+
+it("Image missing or incorrect file name", () => {
+
+  act(() => {
+    render(<ListItems image="" name="Apples" price="1.23"  offer= "{}" disableButtonFunc={mockdisableButtonFunc}
+    />, 
+    container);
+  });
+  expect(container.textContent).toBe("Apples1.23 + ");
+  act(() => {
+    render(<ListItems image="pples.png" name="grapes" price="0.23"  offer= "{}" disableButtonFunc={mockdisableButtonFunc}
+    />, 
+    container);
+  });
+  expect(container.textContent).toBe("grapes0.23 + ");
+
+});
+
 it("renders with correct name and price details", () => {
 
   act(() => {
@@ -79,16 +83,16 @@ it("renders with correct name and price details", () => {
 
 });
 
-// Can't get this to work !!
-// it("offer", () => {
-//   act(() => {
-//     render(<p />, container);
-//   });
-//   expect(container.textContent).toBe("");
+it("renders with correct offer details", () => {
 
-//   act(() => {
-//     render(<p offer="Buy 3 get 1 free" />, container);
-//   });
-//   expect(container.textContent).toBe("Buy 3 get 1 free");
-// });
+  act(() => {
+    render(<ListItems image="apples.png" name="grapes" price="1.23"  offer= {offerTest} disableButtonFunc={mockdisableButtonFunc}
+    />, 
+    container);
+  });
+  expect(container.textContent).toBe("grapes1.23 + cheap apples");
+
+});
+
+
 
